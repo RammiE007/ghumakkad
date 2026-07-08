@@ -19,14 +19,12 @@ jobs:
           channel: 'stable'
 
       - name: Get dependencies
-        run: |
-          cd apps/ghumakkad_app
-          flutter pub get
+        run: flutter pub get
+        working-directory: ./apps/ghumakkad_app
 
       - name: Build APK
-        run: |
-          cd apps/ghumakkad_app
-          flutter build apk --release
+        run: flutter build apk --release
+        working-directory: ./apps/ghumakkad_app
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
